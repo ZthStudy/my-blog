@@ -13,7 +13,7 @@ const devConfig = {
     devServer: {
         contentBase: "./dist",
         open: true,
-        port: '8080',
+        port: '5000',
         hot: true,
     },
     module: {
