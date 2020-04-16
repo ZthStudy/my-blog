@@ -1,6 +1,6 @@
 <template>
-  <div v-loading="loading">
-    <ul>
+  <div class="container" v-loading="loading">
+    <ul class="flex">
       <li v-for="menu in menus" :key="menu.id">{{menu.name}}</li>
     </ul>
   </div>
@@ -11,6 +11,7 @@ import { defineComponent, ref } from "@vue/composition-api";
 import { queryMenus } from "@/api/home";
 import { useMenusProvide, useMenusInject } from "@/context/home";
 import { useAsync } from "@/hooks";
+import "@/styles/reset.scss";
 export default defineComponent({
   setup() {
     useMenusProvide();
@@ -24,5 +25,8 @@ export default defineComponent({
 });
 </script>
 
-<style>
-</style>
+<style scoped>
+.container {
+  margin: 10px;
+}
+</style>>
