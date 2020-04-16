@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const getMenus = () => {
+const queryMenus = () => {
     return axios.get('/api/home/menu')
 }
 
-export { getMenus }
+export { queryMenus }
