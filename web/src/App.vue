@@ -1,8 +1,14 @@
 <template>
   <div class="container" v-loading="loading">
     <ul class="flex">
-      <li v-for="menu in menus" :key="menu.id">{{menu.name}}</li>
+      <router-link
+        class="pr10 blue"
+        v-for="menu in menus"
+        :to="menu.route"
+        :key="menu.id"
+      >{{menu.name}}</router-link>
     </ul>
+    <router-view></router-view>
   </div>
 </template>
 
