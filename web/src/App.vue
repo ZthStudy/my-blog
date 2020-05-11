@@ -1,13 +1,13 @@
 <template>
   <div class="container" v-loading="loading">
-    <ul class="flex">
+    <div class="flex">
       <router-link
         class="pr10 blue"
         v-for="menu in menus"
         :to="menu.route"
         :key="menu.id"
       >{{menu.name}}</router-link>
-    </ul>
+    </div>
     <router-view></router-view>
   </div>
 </template>
