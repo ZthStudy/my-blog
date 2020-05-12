@@ -4,11 +4,11 @@
  * @Author: zhangtianhou
  * @Date: 2020-04-16 10:15:43
  * @LastEditors: zhangtianhou
- * @LastEditTime: 2020-04-16 11:04:45
+ * @LastEditTime: 2020-05-12 10:28:40
  */
 
 import { ref, onMounted } from "@vue/composition-api";
-const useAsync = (func) => {
+const useAsync = (func: () => Promise<any>) => {
   const loading = ref(false);
 
   onMounted(async () => {
