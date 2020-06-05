@@ -5,8 +5,6 @@ import "element-ui/lib/theme-chalk/index.css";
 import App from "./App.vue";
 import router from "@/router";
 
-console.log("router", router);
-
 Vue.use(VueCompositionApi);
 Vue.use(ElementUI);
 new Vue({

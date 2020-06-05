@@ -11,9 +11,10 @@ const devConfig = {
     path: path.resolve(__dirname, "../dist"),
   },
   devServer: {
-    contentBase: "./dist",
+    contentBase: path.join(__dirname, "dist"),
     open: true,
     port: "5000",
+    compress: true,
     hot: true,
     proxy: {
       "/api": "http://localhost:3000",
