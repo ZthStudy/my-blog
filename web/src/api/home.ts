@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const queryMenus = () => {
-    return axios.get('/api/home/menu')
+const queryCards = () => {
+    return axios.get('/api/home/cards')
 }
 
-export { queryMenus }
+export { queryCards }

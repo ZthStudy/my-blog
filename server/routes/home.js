@@ -2,19 +2,21 @@ const router = require("koa-router")();
 
 router.prefix("/api/home");
 
-router.get("/menu", async (ctx, next) => {
+router.get("/cards", async (ctx, next) => {
   ctx.body = {
     code: "success",
     data: [
       {
-        name: "前端系列",
-        route: "/study",
-        id: 1,
+        imgSrc:
+          "https://ae01.alicdn.com/kf/H2ff9a77e172a4ca0bfb6a3e808d14e66t.jpg",
+        title: "Love",
+        content: "tianhou && wangya",
       },
       {
-        name: "荒野人生",
-        route: "/life",
-        id: 2,
+        imgSrc:
+          "https://ae01.alicdn.com/kf/H699aaad75c154f8da74a0aae74f375aem.jpg",
+        title: "前端",
+        content: "html、css、js、frameWork， happy record!",
       },
     ],
   };

@@ -2,7 +2,8 @@
   "name": "web",
   "sideEffects": [
     "*.css",
-    "*.scss"
+    "*.scss",
+    "*.vue"
   ],
   "version": "1.0.0",
   "description": "",

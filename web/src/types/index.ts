@@ -4,13 +4,13 @@
  * @Author: zhangtianhou
  * @Date: 2020-05-12 10:45:27
  * @LastEditors: zhangtianhou
- * @LastEditTime: 2020-05-12 10:45:28
+ * @LastEditTime: 2020-06-07 09:57:26
  */
-type Menus = Menu[];
-type Menu = {
-  id: number;
-  route: string;
-  name: string;
+type Cards = Card[];
+type Card = {
+  imgSrc: string;
+  title: string;
+  content: string;
 };
 
-export { Menus, Menu };
+export { Cards, Card };

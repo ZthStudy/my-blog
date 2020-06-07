@@ -1,67 +1,37 @@
 <template>
-  <!-- <div class="container" v-loading="loading">
-    <div class="flex">
-      <router-link
-        class="pr10 blue"
-        v-for="menu in menus"
-        :to="menu.route"
-        :key="menu.id"
-      >{{menu.name}}</router-link>
-    </div>
-    <router-view></router-view>
-  </div>-->
   <div>
-    <h1 class="title">daily life</h1>
     <div id="app" class="container">
-      <card data-image="https://ae01.alicdn.com/kf/H2ff9a77e172a4ca0bfb6a3e808d14e66t.jpg">
+      <Card v-for="card in cards" :key="card.title" :data-image="card.imgSrc">
         <template #header>
-          <h1>Love</h1>
+          <h1>{{card.title}}</h1>
         </template>
         <template #content>
-          <p>tianhou && wangya</p>
+          <p>{{card.content}}</p>
         </template>
-      </card>
-      <!-- <card
-        data-image="https://images.unsplash.com/photo-1479659929431-4342107adfc1?dpr=2&auto=compress,format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop="
-      >
-        <h1 slot="header">Beaches</h1>
-        <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-      </card>
-      <card
-        data-image="https://images.unsplash.com/photo-1479644025832-60dabb8be2a1?dpr=2&auto=compress,format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop="
-      >
-        <h1 slot="header">Trees</h1>
-        <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-      </card>
-      <card
-        data-image="https://images.unsplash.com/photo-1479621051492-5a6f9bd9e51a?dpr=2&auto=compress,format&fit=crop&w=1199&h=811&q=80&cs=tinysrgb&crop="
-      >
-        <h1 slot="header">Lakes</h1>
-        <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-      </card> -->
+      </Card>
     </div>
   </div>
 </template>
 
 <script>
 import { defineComponent, ref } from "@vue/composition-api";
-import { queryMenus } from "@/api/home";
-import { useMenusProvide, useMenusInject } from "@/context/home";
+import { queryCards } from "@/api/home";
+import { useHomeProvide, useHomeInject } from "@/context/home";
 import { useAsync } from "@/hooks";
-import card from "@/components/Card";
+import Card from "@/components/Card";
 import "@/styles/reset.scss";
 export default defineComponent({
   components: {
-    card
+    Card
   },
   setup() {
-    useMenusProvide();
-    const { menus, setMenus } = useMenusInject();
+    useHomeProvide();
+    const { cards, setCards } = useHomeInject();
     const loading = useAsync(async () => {
-      const res = await queryMenus();
-      setMenus(res.data.data);
+      const res = await queryCards();
+      setCards(res.data.data);
     });
-    return { menus, loading };
+    return { cards, loading };
   }
 });
 </script>

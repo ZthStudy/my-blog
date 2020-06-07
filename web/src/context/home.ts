@@ -1,27 +1,27 @@
 import { provide, inject, ref, Ref } from "@vue/composition-api";
-import { Menus, Menu } from "@/types";
+import { Cards, Card } from "@/types";
 
-type MenusContext = {
-  menus: Ref<Menus>;
-  setMenus: (value: Menus) => void;
+type CardsContext = {
+  menus: Ref<Cards>;
+  setMenus: (value: Cards) => void;
 };
 
-const menusSymbol = Symbol();
-const useMenusProvide = () => {
-  const menus = ref<Menus>([]);
-  const setMenus = (data: Menus) => (menus.value = data);
-  provide(menusSymbol, {
-    menus,
-    setMenus,
+const cardsSymbol = Symbol();
+const useHomeProvide = () => {
+  const cards = ref<Cards>([]);
+  const setCards = (data: Cards) => (cards.value = data);
+  provide(cardsSymbol, {
+    cards,
+    setCards,
   });
 };
 
-const useMenusInject = () => {
-  const menusContext = inject<MenusContext>(menusSymbol);
-  if (!menusContext) {
-    throw new Error("useMenusInject must be used after useMenuProvide");
+const useHomeInject = () => {
+  const cardsContext = inject<CardsContext>(cardsSymbol);
+  if (!cardsContext) {
+    throw new Error("useHomeInject must be used after useHomeProvide");
   }
-  return menusContext;
+  return cardsContext;
 };
 
-export { useMenusProvide, useMenusInject };
+export { useHomeProvide, useHomeInject };
