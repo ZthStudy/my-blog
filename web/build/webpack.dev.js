@@ -17,7 +17,7 @@ const devConfig = {
     compress: true,
     hot: true,
     proxy: {
-      "/api": "http://localhost:3333",
+      "/api": "http://localhost:3000",
     },
   },
   module: {

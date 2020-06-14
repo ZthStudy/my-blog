@@ -16,7 +16,12 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        use: ["vue-loader"],
+        loader: "vue-loader",
+        options: {
+          transformAssetUrls: {
+            audio: "src",
+          },
+        },
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -30,6 +35,15 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.mp3$/,
+        loader: "url-loader",
+        options: {
+          limit: 10000,
+          name: "[name].[ext]",
+          esModule: false
+        },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,

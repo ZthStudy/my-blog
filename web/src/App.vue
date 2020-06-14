@@ -1,5 +1,6 @@
 <template>
   <div>
+    <audio id="audio" src="./assets/audio/home.mp3" loop autoplay></audio>
     <div id="app" class="container">
       <Card v-for="card in cards" :key="card.title" :data-image="card.imgSrc">
         <template #header>
@@ -24,6 +25,11 @@ export default defineComponent({
   components: {
     Card
   },
+  mounted() {
+    window.addEventListener("click", () => {
+      document.getElementById("audio").play();
+    });
+  },
   setup() {
     useHomeProvide();
     const { cards, setCards } = useHomeInject();
@@ -31,6 +37,7 @@ export default defineComponent({
       const res = await queryCards();
       setCards(res.data.data);
     });
+
     return { cards, loading };
   }
 });
