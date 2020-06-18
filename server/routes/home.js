@@ -10,7 +10,7 @@ router.get("/cards", async (ctx, next) => {
         imgSrc:
           "https://ae01.alicdn.com/kf/H2ff9a77e172a4ca0bfb6a3e808d14e66t.jpg",
         title: "Love",
-        content: "tianhou && wangya",
+        content: "tianhou & wangya",
       },
       {
         imgSrc:

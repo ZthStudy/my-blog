@@ -4,29 +4,25 @@
  * @Author: zhangtianhou
  * @Date: 2020-04-28 10:29:13
  * @LastEditors: zhangtianhou
- * @LastEditTime: 2020-05-12 09:34:04
+ * @LastEditTime: 2020-06-15 16:40:35
  */
 import Vue from "vue";
 import Router from "vue-router";
-import Study from "@/pages/study/index.vue";
-import List from "@/pages/list/index.vue";
+import MyLove from "@/pages/MyLove/index.vue";
+import Cards from "@/pages/Cards/index.vue";
 Vue.use(Router);
 
 const router = new Router({
   routes: [
     {
-      path: "/study",
-      component: Study,
-      children: [
-        {
-          path: "js",
-          component: List,
-        },
-        {
-          path: "css",
-          component: List,
-        },
-      ],
+
+      path: "/",
+      component: Cards,
+    },
+    {
+      name:'myLove',
+      path: "/myLove",
+      component: MyLove,
     },
   ],
 });

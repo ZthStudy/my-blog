@@ -1,44 +1,20 @@
 <template>
   <div>
     <audio id="audio" src="./assets/audio/home.mp3" loop autoplay></audio>
-    <div id="app" class="container">
-      <Card v-for="card in cards" :key="card.title" :data-image="card.imgSrc">
-        <template #header>
-          <h1>{{card.title}}</h1>
-        </template>
-        <template #content>
-          <p>{{card.content}}</p>
-        </template>
-      </Card>
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import { defineComponent, ref } from "@vue/composition-api";
-import { queryCards } from "@/api/home";
-import { useHomeProvide, useHomeInject } from "@/context/home";
-import { useAsync } from "@/hooks";
-import Card from "@/components/Card";
 import "@/styles/reset.scss";
+import { defineComponent, onMounted } from "@vue/composition-api";
 export default defineComponent({
-  components: {
-    Card
-  },
-  mounted() {
-    window.addEventListener("click", () => {
-      document.getElementById("audio").play();
-    });
-  },
   setup() {
-    useHomeProvide();
-    const { cards, setCards } = useHomeInject();
-    const loading = useAsync(async () => {
-      const res = await queryCards();
-      setCards(res.data.data);
+    onMounted(() => {
+      window.addEventListener("click", () => {
+        document.getElementById("audio").play();
+      });
     });
-
-    return { cards, loading };
   }
 });
 </script>
@@ -53,31 +29,3 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 </style>
-
-<style scoped>
-/* .container {
-  margin: 10px;
-} */
-.title {
-  font-family: "Raleway";
-  font-size: 24px;
-  font-weight: 700;
-  color: #5d4037;
-  text-align: left;
-  padding-left: 80px;
-}
-.container {
-  padding: 40px 80px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-p {
-  line-height: 1.5em;
-}
-
-h1 + p,
-p + p {
-  margin-top: 10px;
-}
-</style>>
