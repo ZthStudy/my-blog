@@ -4,7 +4,7 @@
  * @Author: zhangtianhou
  * @Date: 2020-06-15 16:03:20
  * @LastEditors: zhangtianhou
- * @LastEditTime: 2020-06-19 15:43:38
+ * @LastEditTime: 2020-06-19 16:20:56
 --> 
 <template>
   <div class="mylove-container">
@@ -24,7 +24,7 @@
             placement="top"
           >
             <h4>{{sub.subTitle}}</h4>
-            <el-carousel class="carousel" height="800px">
+            <el-carousel class="carousel" height="1075px">
               <el-carousel-item
                 @click.native="toBigImage(imageSrc)"
                 v-for="(imageSrc,index) in sub.imageSrcs"
@@ -45,8 +45,7 @@ import { defineComponent, ref } from "@vue/composition-api";
 export default defineComponent({
   name: "myLove",
   setup() {
-    const activeNames = ref([]);
-    const red = ref("red");
+    const activeNames = ref(["SanYa"]);
     const trips = ref([
       {
         name: "SanYa",
@@ -55,7 +54,6 @@ export default defineComponent({
           {
             subTitle: "亚龙湾",
             timestamp: "2020/5/16",
-
             imageSrcs: [
               "https://s1.ax1x.com/2020/06/19/NKQ3Jf.jpg",
               "https://s1.ax1x.com/2020/06/19/NKQtyQ.jpg",
@@ -77,7 +75,24 @@ export default defineComponent({
               "https://s1.ax1x.com/2020/06/19/NKnu4O.jpg",
               "https://s1.ax1x.com/2020/06/19/NKnmE6.jpg",
               "https://s1.ax1x.com/2020/06/19/NKu7lQ.jpg",
-              "https://s1.ax1x.com/2020/06/19/NKuHyj.jpg"
+              "https://s1.ax1x.com/2020/06/19/NKuHyj.jpg",
+              "https://s1.ax1x.com/2020/06/19/NK1FgO.jpg",
+              "https://s1.ax1x.com/2020/06/19/NK1PC6.jpg",
+              "https://s1.ax1x.com/2020/06/19/NK1EKe.jpg",
+              "https://s1.ax1x.com/2020/06/19/NK1i8K.jpg"
+            ]
+          },
+          {
+            subTitle: "蜈支洲岛",
+            timestamp: "2020/5/18",
+            imageSrcs: [
+              "https://s1.ax1x.com/2020/06/19/NK3eQU.jpg",
+              "https://s1.ax1x.com/2020/06/19/NK3VzT.jpg",
+              "https://s1.ax1x.com/2020/06/19/NK3ion.jpg",
+              "https://s1.ax1x.com/2020/06/19/NK3AJ0.jpg",
+              "https://s1.ax1x.com/2020/06/19/NK3kiq.jpg",
+              "https://s1.ax1x.com/2020/06/19/NK3nL4.jpg",
+              "https://s1.ax1x.com/2020/06/19/NK3myF.jpg"
             ]
           }
         ]
@@ -89,26 +104,26 @@ export default defineComponent({
     function toBigImage(imageSrc) {
       window.open(imageSrc);
     }
-    return { activeNames, handleChange, trips, red, toBigImage };
+    return { activeNames, handleChange, trips, toBigImage };
   }
 });
 </script>
 
 <style lang="scss">
 .mylove-container {
-  width: 800px;
+  width: 900px;
   margin: 0 auto;
   .mylove-panel {
     .carousel {
-      width: 600px;
+      width: 800px;
     }
     .timeline,
     .el-collapse-item__header {
       padding: 0 10px;
     }
     .bg {
-      width: 600px;
-      height: 800px;
+      width: 800px;
+      height: 1075px;
       margin-bottom: 10px;
       background-size: cover;
       cursor: pointer;

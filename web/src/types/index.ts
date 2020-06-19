@@ -4,7 +4,7 @@
  * @Author: zhangtianhou
  * @Date: 2020-05-12 10:45:27
  * @LastEditors: zhangtianhou
- * @LastEditTime: 2020-06-07 09:57:26
+ * @LastEditTime: 2020-06-19 16:23:24
  */
 type Cards = Card[];
 type Card = {
@@ -12,5 +12,16 @@ type Card = {
   title: string;
   content: string;
 };
+type Trips = Trip[];
+type Trip = {
+  name: string;
+  title: string;
+  children: SubTrip[];
+};
+type SubTrip = {
+  subTitle: string;
+  timestamp: string;
+  imageSrcs: string[];
+};
 
-export { Cards, Card };
+export { Cards, Card, Trips, Trip };
