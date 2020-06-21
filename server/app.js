@@ -10,6 +10,7 @@ const cors = require("koa2-cors");
 const index = require("./routes/index");
 const users = require("./routes/users");
 const home = require("./routes/home");
+const myLove = require("./routes/myLove");
 
 // error handler
 onerror(app);
@@ -17,12 +18,12 @@ onerror(app);
 app.use(
   cors({
     origin: function (ctx) {
-      console.log({ctx})
+      console.log({ ctx });
       //设置允许来自指定域名请求
       if (ctx.url === "/test") {
         return "*"; // 允许来自所有域名请求
       }
-      return '*'
+      return "*";
       // return "http://localhost:5000"; //只允许http://localhost:8080这个域名的请求
     },
     maxAge: 5, //指定本次预检请求的有效期，单位为秒。
@@ -61,6 +62,7 @@ app.use(async (ctx, next) => {
 app.use(index.routes(), index.allowedMethods());
 app.use(users.routes(), users.allowedMethods());
 app.use(home.routes(), home.allowedMethods());
+app.use(myLove.routes(), myLove.allowedMethods());
 
 // error-handling
 app.on("error", (err, ctx) => {

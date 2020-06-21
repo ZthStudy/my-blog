@@ -4,7 +4,7 @@
  * @Author: zhangtianhou
  * @Date: 2020-06-19 16:11:29
  * @LastEditors: zhangtianhou
- * @LastEditTime: 2020-06-19 16:29:08
+ * @LastEditTime: 2020-06-21 17:57:30
  */
 
 import { ref, provide, Ref, inject } from "@vue/composition-api";
@@ -18,9 +18,14 @@ type TripsContext = {
 const myLoveSymbol = Symbol();
 const useMyLoveProvide = () => {
   const trips = ref<Trips>([]);
-  const setTrips = (data: Trips) => (trips.value = data);
+  const activeNames: string[] = [];
+  const setTrips = (data: Trips) => {
+    trips.value = data;
+    activeNames.push(data[0].name);
+  };
   provide(myLoveSymbol, {
     trips,
+    activeNames,
     setTrips,
   });
 };
